@@ -1,6 +1,6 @@
 'use strict';
 
-define("jausenholer-app/tests/helpers/index", ["exports", "ember-qunit"], function (_exports, _emberQunit) {
+define("jausenholer/tests/helpers/index", ["exports", "ember-qunit"], function (_exports, _emberQunit) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -9,7 +9,6 @@ define("jausenholer-app/tests/helpers/index", ["exports", "ember-qunit"], functi
   _exports.setupApplicationTest = setupApplicationTest;
   _exports.setupRenderingTest = setupRenderingTest;
   _exports.setupTest = setupTest;
-  0; //eaimeta@70e063a35619d71f0,"ember-qunit"eaimeta@70e063a35619d71f
 
   // This file exists to provide wrappers around ember-qunit's / ember-mocha's
   // test setup functions. This way, you can easily extend the setup that is
@@ -39,19 +38,15 @@ define("jausenholer-app/tests/helpers/index", ["exports", "ember-qunit"], functi
     (0, _emberQunit.setupTest)(hooks, options); // Additional setup for unit tests can be done here.
   }
 });
-define("jausenholer-app/tests/test-helper", ["jausenholer-app/app", "jausenholer-app/config/environment", "qunit", "@ember/test-helpers", "qunit-dom", "ember-qunit"], function (_app, _environment, QUnit, _testHelpers, _qunitDom, _emberQunit) {
+define("jausenholer/tests/test-helper", ["jausenholer-app/app", "jausenholer-app/config/environment", "qunit", "@ember/test-helpers", "qunit-dom", "ember-qunit"], function (_app, _environment, QUnit, _testHelpers, _qunitDom, _emberQunit) {
   "use strict";
-
-  0; //eaimeta@70e063a35619d71f0,"jausenholer-app/app",0,"jausenholer-app/config/environment",0,"qunit",0,"@ember/test-helpers",0,"qunit-dom",0,"ember-qunit"eaimeta@70e063a35619d71f
 
   (0, _testHelpers.setApplication)(_app.default.create(_environment.default.APP));
   (0, _qunitDom.setup)(QUnit.assert);
   (0, _emberQunit.start)();
 });
-define("jausenholer-app/tests/unit/routes/bestellen-test", ["qunit", "jausenholer-app/tests/helpers"], function (_qunit, _helpers) {
+define("jausenholer/tests/unit/routes/bestellen-test", ["qunit", "jausenholer-app/tests/helpers"], function (_qunit, _helpers) {
   "use strict";
-
-  0; //eaimeta@70e063a35619d71f0,"qunit",0,"jausenholer-app/tests/helpers"eaimeta@70e063a35619d71f
 
   (0, _qunit.module)('Unit | Route | bestellen', function (hooks) {
     (0, _helpers.setupTest)(hooks);
@@ -61,10 +56,8 @@ define("jausenholer-app/tests/unit/routes/bestellen-test", ["qunit", "jausenhole
     });
   });
 });
-define("jausenholer-app/tests/unit/routes/index-test", ["qunit", "jausenholer-app/tests/helpers"], function (_qunit, _helpers) {
+define("jausenholer/tests/unit/routes/index-test", ["qunit", "jausenholer-app/tests/helpers"], function (_qunit, _helpers) {
   "use strict";
-
-  0; //eaimeta@70e063a35619d71f0,"qunit",0,"jausenholer-app/tests/helpers"eaimeta@70e063a35619d71f
 
   (0, _qunit.module)('Unit | Route | index', function (hooks) {
     (0, _helpers.setupTest)(hooks);
@@ -93,6 +86,6 @@ catch(err) {
 
 });
 
-require('jausenholer-app/tests/test-helper');
+require('jausenholer/tests/test-helper');
 EmberENV.TESTS_FILE_LOADED = true;
 //# sourceMappingURL=tests.map
