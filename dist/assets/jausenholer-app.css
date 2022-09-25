@@ -1,0 +1,303 @@
+:root {
+  --bgcolor: #FFFEF8;
+  --fontsize: 16px;
+  --fontfamiliy: sans-serif;
+  --accentcolor: #E96A6A;
+  --compcolor: #4EB4FF;
+  --fontcolor:#898989;
+  --borderradius: 10px;
+  --bordercolor: rgb(190, 190, 190);
+}
+
+body {
+  background-color: var(--bgcolor);
+  font-size: var(--fontsize);
+  font-family: var(--fontfamiliy);
+  color: var(--fontcolor);
+  margin: 0 20px;
+}
+
+img {
+  max-width: 100%;
+}
+
+container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 100px;
+}
+
+logo {
+  background-image: url(../img/Jausenholer.png);
+  width: 100%;
+  margin: 0 20 0 20;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+logo h1 {
+  visibility: hidden;
+}
+
+description {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 40px 0 40px 0;
+  width: 100%;
+}
+description h1 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+description p {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  margin-top: 5px;
+}
+
+seperator {
+  margin: 50px 0 20px 0;
+  display: inline-block;
+  width: 100%;
+  color: var(--bordercolor);
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  font-size: 0.75rem;
+}
+seperator::after {
+  content: "";
+  margin: 5px 0 0 0;
+  border-bottom: 1px solid var(--bordercolor);
+  width: 100%;
+  position: relative;
+  display: block;
+}
+
+input, textarea {
+  width: 100%;
+  min-height: 45px;
+  border-radius: var(--borderradius);
+  border-color: var(--bordercolor);
+  border-style: solid;
+  font-size: 1.25rem;
+  padding-left: 10px;
+  border-width: 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: var(--fontcolor);
+  margin-bottom: 10px;
+  font-family: var(--fontfamiliy);
+}
+input::placeholder, textarea::placeholder {
+  color: var(--bordercolor);
+}
+input:focus, textarea:focus {
+  outline-color: var(--compcolor);
+}
+
+label {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+button {
+  background-color: var(--accentcolor);
+  color: var(--bgcolor);
+  border: 1px solid var(--bgcolor);
+  box-shadow: 5px 5px 0px var(--compcolor);
+  text-transform: uppercase;
+  min-height: 50px;
+  line-height: 50px;
+  border-radius: var(--borderradius);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.my-50 {
+  margin: 50px 0px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}
+
+.form-inlinebutton {
+  margin-top: 36px;
+}
+
+row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-10 {
+  width: 83.3333333333%;
+}
+
+.col-2 {
+  width: 16.6666666667%;
+}
+
+.col-1 {
+  width: 8.3333333333%;
+}
+
+.col-5 {
+  width: 41.6666666667%;
+}
+
+.col-8 {
+  width: 66.6666666667%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+column:first-child {
+  padding-left: 0;
+}
+
+list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+list jausenstation {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-decoration: none !important;
+  position: relative;
+  cursor: pointer;
+  padding: 20px;
+  font-size: 1.25rem;
+  border: 1px solid var(--bordercolor);
+  border-radius: var(--borderradius);
+  margin: 0 0 20px 0;
+  transition: all 0.3s ease-in-out;
+}
+list jausenstation station {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+list jausenstation detaillist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+list jausenstation detaillist detail {
+  margin: 0 20px 0 0;
+}
+list jausenstation detaillist detail description {
+  margin: 0;
+  font-size: 0.75rem;
+}
+list jausenstation:hover {
+  box-shadow: 5px 5px 0px var(--compcolor);
+}
+list jausenstation:hover::after {
+  right: 15px;
+}
+list jausenstation::after {
+  content: "\f086";
+  font-family: "Wingdings 3";
+  position: absolute;
+  transform: translateY(-50%) scaleY(300%) scaleX(70%);
+  right: 20px;
+  top: 50%;
+  transition: all 0.3s ease-in-out;
+}
+list jausenstation.no-click {
+  padding: 0px;
+  border: none;
+  margin: 40px 0 20px 0;
+  transition: all 0.3s ease-in-out;
+}
+list jausenstation.no-click:hover {
+  box-shadow: none;
+}
+list jausenstation.no-click:hover::after {
+  right: 15px;
+}
+list jausenstation.no-click::after {
+  content: "";
+}
+
+i {
+  font-family: "Windings";
+}
+
+a {
+  color: var(--fontcolor);
+  transition: all 0.3s ease-in-out;
+}
+a :visited {
+  color: var(--fontcolor);
+}
+a :hover {
+  color: var(--accentcolor);
+}
+
+a.ember-view {
+  text-decoration: none;
+}
+a.ember-view :hover {
+  color: var(--fontcolor);
+}
+
+footer {
+  background-color: var(--accentcolor);
+  color: #FFFEF8 !important;
+  margin: 0 -20px;
+}
+footer a {
+  color: var(--bgcolor);
+  transition: all 0.3s ease-in-out;
+}
+footer a :visited {
+  color: var(--bgcolor);
+}
+footer a :hover {
+  color: var(--compcolor);
+}
+
+circle {
+  display: block;
+  width: 10vw;
+  height: 10vw;
+  transform: translateY(-50%);
+  background-color: var(--accentcolor);
+  border-radius: 9999px;
+}
+
+/*# sourceMappingURL=jausenholer-app.css.map */

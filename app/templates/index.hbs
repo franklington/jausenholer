@@ -1,0 +1,84 @@
+{{page-title "Index"}}
+{{outlet}}
+
+<description>
+    <p>
+    Wähle eine Jausenmöglichkeit aus der Liste aus.
+
+    </p>
+</description>
+<list>
+    <LinkTo @route="bestellen">
+   
+    <jausenstation>
+        <station>Goldstein Pizza</station>
+        <name>Jane Doe</name>
+
+        <detaillist>
+            <detail>
+                <description>Bestellen bis: </description>
+                <value>25 min</value>
+            </detail>
+             <detail>
+                <description>Lieferung: </description>
+                <value>12:00 Uhr</value>
+            </detail>
+        </detaillist>
+    </jausenstation>
+     </LinkTo>
+         <LinkTo @route="bestellen">
+
+        <jausenstation>
+        <station>Goldstein Pizza</station>
+        <name>Jane Doe</name>
+
+        <detaillist>
+            <detail>
+                <description>Bestellen bis: </description>
+                <value>25 min</value>
+            </detail>
+             <detail>
+                <description>Lieferung: </description>
+                <value>12:00 Uhr</value>
+            </detail>
+        </detaillist>
+    </jausenstation>
+         </LinkTo>
+
+</list>
+
+<description>
+    <h1>Nichts dabei?</h1>
+    <p>Hole selbst Jause für andere.</p>
+</description>
+
+<seperator>Deine Daten</seperator>
+<form>
+
+<label for="name">Name</label>
+<input type="text" name="name" placeholder="Chris" id="">
+<label for="mail">Mail</label>
+<input type="email" name="mail" placeholder="chris.p@alpinemetaltech.com"  id="">
+
+<seperator>Jausenstation Details</seperator>
+<label for="jausenstation">Name der Jausenstation</label>
+<input type="text" name="jausenstation" placeholder="eg.: Freitagsjause" id="">
+<row>
+<column class="col-6">
+<label for="ordertill">Bestellen bis:</label>
+<input type="time"  value="11:30" name="ordertill" id="">
+</column>
+<column class="col-6">
+<label for="deliverytill">Lieferung bis:</label>
+<input type="time" name="deliverytill" value="12:00" id="">
+
+
+</column>
+
+
+</row>
+<label for="description">Anmerkung</label>
+<textarea name="description" id="" cols="30" rows="4" placeholder="Abholung unten. Barzahlung"></textarea>
+<button type="submit" class="my-50">Erstellen</button>
+</form>
+
