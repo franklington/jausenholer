@@ -86,6 +86,6 @@ catch(err) {
 
 });
 
-require('jausenholer/tests/test-helper');
+require('jausenholer-app/tests/test-helper');
 EmberENV.TESTS_FILE_LOADED = true;
 //# sourceMappingURL=tests.map
