@@ -1,10 +1,9 @@
 import Route from '@ember/routing/route';
-import { service } from "@ember/service";
+import RealtimeRouteMixin from 'emberfire/mixins/realtime-route';
+import PerformanceRouteMixin from 'emberfire/mixins/performance-route';
 
-export default class IndexRoute extends Route {
-    @service store;
-
-    model(){
-        return this.store.findAll("jausenstation");
+export default Route.extend(RealtimeRouteMixin, PerformanceRouteMixin, {
+    model() {
+        return this.store.query('jausenstation', { orderBy: 'publishedAt' });
     }
-}
+});

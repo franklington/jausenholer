@@ -53,24 +53,24 @@
 </description>
 
 <seperator>Deine Daten</seperator>
-<form>
+<form {{on "submit" this.createJausenstation}}>
 
 <label for="name">Name</label>
-<input type="text" name="name" placeholder="Chris" id="">
+<Input @type="text" name="name" @value={{this.name}} placeholder="Chris" id=""/>
 <label for="mail">Mail</label>
-<input type="email" name="mail" placeholder="chris.p@alpinemetaltech.com"  id="">
+<Input @type="email" name="mail" @value={{this.mail}} placeholder="chris.p@alpinemetaltech.com"  id=""/>
 
 <seperator>Jausenstation Details</seperator>
 <label for="jausenstation">Name der Jausenstation</label>
-<input type="text" name="jausenstation" placeholder="eg.: Freitagsjause" id="">
+<Input @type="text" name="jausenstation" @value={{this.jausenstation}} placeholder="eg.: Freitagsjause" id=""/>
 <row>
 <column class="col-6">
 <label for="ordertill">Bestellen bis:</label>
-<input type="time"  value="11:30" name="ordertill" id="">
+<Input @type="time"   @value={{this.ordertill}} name="ordertill" id=""/>
 </column>
 <column class="col-6">
 <label for="deliverytill">Lieferung bis:</label>
-<input type="time" name="deliverytill" value="12:00" id="">
+<Input @type="time" @value={{this.deliverytill}}  name="deliverytill" value="12:00" id="" />
 
 
 </column>
@@ -78,7 +78,7 @@
 
 </row>
 <label for="description">Anmerkung</label>
-<textarea name="description" id="" cols="30" rows="4" placeholder="Abholung unten. Barzahlung"></textarea>
-<button type="submit" class="my-50">Erstellen</button>
+<Textarea name="description" id=""  @value={{this.description}} cols="30" rows="4" placeholder="Abholung unten. Barzahlung" />
+<button type="submit" class="my-50" >Erstellen</button>
 </form>
 

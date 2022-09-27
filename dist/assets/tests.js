@@ -45,6 +45,18 @@ define("jausenholer/tests/test-helper", ["jausenholer-app/app", "jausenholer-app
   (0, _qunitDom.setup)(QUnit.assert);
   (0, _emberQunit.start)();
 });
+define("jausenholer/tests/unit/controllers/index-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Controller | index', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks); // TODO: Replace this with your real tests.
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let controller = this.owner.lookup('controller:index');
+      assert.ok(controller);
+    });
+  });
+});
 define("jausenholer/tests/unit/routes/bestellen-test", ["qunit", "jausenholer-app/tests/helpers"], function (_qunit, _helpers) {
   "use strict";
 
@@ -67,8 +79,8 @@ define("jausenholer/tests/unit/routes/index-test", ["qunit", "jausenholer-app/te
     });
   });
 });
-define('jausenholer-app/config/environment', [], function() {
-  var prefix = 'jausenholer-app';
+define('jausenholer/config/environment', [], function() {
+  var prefix = 'jausenholer';
 try {
   var metaName = prefix + '/config/environment';
   var rawConfig = document.querySelector('meta[name="' + metaName + '"]').getAttribute('content');
@@ -86,6 +98,6 @@ catch(err) {
 
 });
 
-require('jausenholer-app/tests/test-helper');
+require('jausenholer/tests/test-helper');
 EmberENV.TESTS_FILE_LOADED = true;
 //# sourceMappingURL=tests.map

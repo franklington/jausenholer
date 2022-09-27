@@ -4,9 +4,9 @@
     --fontfamiliy: sans-serif;
     --accentcolor: #E96A6A;
     --compcolor: #4EB4FF;
-    --fontcolor:#898989;
+    --fontcolor:#3a3a3a;
     --borderradius: 10px;
-    --bordercolor: rgb(190, 190, 190);
+    --bordercolor: rgb(138, 138, 138);
 }
 
 @mixin flexcolumnn {
@@ -132,6 +132,12 @@ button{
     border-radius: var(--borderradius);
     font-size: 1.25rem;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-sizing: border-box;
+
+    &:hover{
+        border-width: 3px;
+    }
 }
 .my-50{
     margin: 50px 0px;

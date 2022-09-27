@@ -1,17 +1,10 @@
-import Model, { belongsTo, hasMany } from '@ember-data/model';
+import DS from 'ember-data';
+const { attr, belongsTo, hasMany } = DS;
 
-export default class JausenstationModel extends Model {
-
-    @attr("string") username;
-    @attr("string") mail;
-    @attr("string") userid;
-
-
-    @attr("string") name;
-    @attr("string") description;
-
-    @attr("date") ordertill;
-    @attr("date") deliverytill;
- 
-    @hasMany("order") orders;
-}
+export default DS.Model.extend({
+    title: attr('string'),
+    body: attr('string'),
+    publishedAt: attr('date'),
+    author: belongsTo('user'),
+    comments: hasMany('comments', { subcollection: true }),
+});

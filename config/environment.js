@@ -2,12 +2,13 @@
 
 module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'jausenholer-app',
+    modulePrefix: 'jausenholer',
     environment,
     rootURL: '/',
     locationType: 'history',
     firebase: {
       apiKey: "AIzaSyAbW7244vXNDIfald4QCb1r3OvitcyhjKw",
+      projectId:"jausenholer",
       authDomain: "jausenholer.firebaseapp.com",
       databaseURL: "https://jausenholer.firebaseio.com",
       storageBucket: "jausenholer.appspot.com",
