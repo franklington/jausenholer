@@ -87,6 +87,7 @@ export class IndexComponent implements OnInit {
     });
   
     this.jausenData.saveNewJausenholer(jausenstation);
+    this.jausenForm.reset();
     }
 
   

@@ -10,7 +10,7 @@ export class UserStoreService {
   constructor() { }
 
   public loadUser() : User {
-    var res = window.localStorage.getItem(this.key);
+    var res = localStorage.getItem(this.key);
     console.log("LoadUser:"+res);
     if(res){
       return JSON.parse(res) as User;
@@ -23,7 +23,7 @@ export class UserStoreService {
   public setUser(user:User){
     console.log("SetUser:"+JSON.stringify(user));
 
-    window.localStorage.setItem(this.key,JSON.stringify(user) );
+    localStorage.setItem(this.key,JSON.stringify(user) );
   }
   public generateUserID(name?:string) : string{
     if(name != undefined){

@@ -112,6 +112,7 @@ export class BestellenComponent implements OnInit {
         });
         this.jausenData.createBestellung(bestell);
         this.refreshBestellungen();
+        this.bestellenForm.reset();
       }
      
     }
