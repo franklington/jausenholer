@@ -1,0 +1,74 @@
+
+<description>
+    <p>
+    Wähle eine Jausenmöglichkeit aus der Liste aus.
+
+    </p>
+</description>
+<list>
+   
+   
+    <jausenstation   *ngFor="let item of jausenholers | async" [routerLink]="['/bestellen', item.id]">
+        <status *ngIf="(item.ordertill.seconds <= currentTime)">Abgeschlossen</status>
+        <status *ngIf="(item.ordertill.seconds >= currentTime)" class="open">Offen</status>
+        <station>{{item.jausenstation}}</station>
+        <name>{{item.name}}</name>
+
+
+        <detaillist>
+            <detail>
+                <description>Bestellen bis: </description>
+                <value>{{ item.ordertill.seconds *1000| date: 'HH:mm'}} Uhr</value>
+            </detail>
+             <detail>
+                <description>Lieferung: </description>
+                <value>{{ item.delivertill.seconds *1000| date: 'HH:mm'}} Uhr</value>
+            </detail>
+        </detaillist>
+        <p class="description">
+            <b>Infos:</b>
+            {{item.description}}
+        </p>
+    </jausenstation>
+
+
+</list>
+
+<description>
+    <h1>Nichts dabei?</h1>
+    <p>Hole selbst Jause für andere.</p>
+</description>
+
+<seperator>Deine Daten</seperator>
+<form [formGroup]="jausenForm" (ngSubmit)="newJausenstation()" novalidate>
+
+<label for="name">Name</label>
+<input type="text" name="name" formControlName="name" placeholder="Chris" id="name"/>
+<label for="mail" class="d-none">Mail</label>
+<input type="email" name="mail"  class="d-none" formControlName="mail" placeholder="chris.p@alpinemetaltech.com"  id="mail"/>
+
+<seperator>Jausenstation Details</seperator>
+<label for="jausenstation">Name der Jausenstation</label>
+<input type="text" name="jausenstation"  formControlName="jausenstation" placeholder="eg.: Freitagsjause" id=""/>
+<row>
+<column class="col-6">
+<label for="ordertill">Bestellen bis:</label>
+<input type="time" formControlName="ordertill"  name="ordertill" id=""/>
+</column>
+<column class="col-6">
+<label for="deliverytill">Lieferung bis:</label>
+<input type="time"  formControlName="delivertill" name="deliverytill" value="12:00" id="" />
+
+
+</column>
+
+
+</row>
+<label for="description">Anmerkung</label>
+<textarea name="description" formControlName="description" id="" cols="30" rows="4" placeholder="Abholung unten. Barzahlung" ></Textarea>
+
+<button type="submit" class="my-50" [disabled]="!jausenForm.valid">Erstellen</button>
+</form>
+
+
+<div class="empty-space"></div>

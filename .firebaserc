@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "jausen-holer": {
+      "hosting": {
+        "jausenholer": [
+          "jausen-holer"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "jausen-holer"
+  }
+}

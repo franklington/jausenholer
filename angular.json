@@ -100,6 +100,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "jausenholer:build:production",
+            "firebaseProject": "jausen-holer",
+            "firebaseHostingSite": "jausen-holer"
+          }
         }
       }
     }
