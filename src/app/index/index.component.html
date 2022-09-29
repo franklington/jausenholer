@@ -1,5 +1,5 @@
 
-<description>
+<description *ngIf="jausenholers">
     <p>
     Wähle eine Jausenmöglichkeit aus der Liste aus.
 
@@ -13,7 +13,10 @@
         <status *ngIf="(item.ordertill.seconds >= currentTime)" class="open">Offen</status>
         <station>{{item.jausenstation}}</station>
         <name>{{item.name}}</name>
-
+        <p class="description">
+            <b>Infos:</b>
+            {{item.description}}
+        </p>
 
         <detaillist>
             <detail>
@@ -25,10 +28,7 @@
                 <value>{{ item.delivertill.seconds *1000| date: 'HH:mm'}} Uhr</value>
             </detail>
         </detaillist>
-        <p class="description">
-            <b>Infos:</b>
-            {{item.description}}
-        </p>
+
     </jausenstation>
 
 

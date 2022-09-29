@@ -19,7 +19,7 @@ export class BestellenComponent implements OnInit {
   jausenholer_id: string;
   jausenholer: any;
   bestellungen: any;
-  produkte: any;
+  produkte: any[] = [];
   currentUser: User;
   currentTime: number;
 
@@ -50,6 +50,7 @@ export class BestellenComponent implements OnInit {
     this.jausenData.getJausenholerById(this.jausenholer_id).then(data => {
   
       this.jausenholer = data;
+     
 
     
     });
@@ -71,28 +72,43 @@ export class BestellenComponent implements OnInit {
 
   refreshBestellungen():void{
     this.bestellungen =  this.jausenData.findAllBestellungen(this.jausenholer_id).then(data=>{
+      const tempAssStore : any = {};
       data.forEach(item =>{
         console.log(item);
-        this.produkte = [];
         item.products.forEach(product =>{
             var productid = product.name as string;
             productid = productid.replace(/\s/g,'');
             productid = "#"+productid.toLowerCase();
 
-            if(this.produkte[productid!] != null){
-              this.produkte[productid!].count += product.count; 
+            if(tempAssStore[productid!] != null){
+              tempAssStore[productid!].count += product.count; 
             }
             else{
-              this.produkte[productid!] = <Product>({
+              tempAssStore[productid!] = <Product>({
                 name: product.name,
                 count: product.count
               });
             }
         });
-        console.log(this.produkte);
         
         
       });
+      this.produkte = new Array();
+      console.log(tempAssStore);
+      
+      for(var item in tempAssStore){
+        console.log(tempAssStore[item]);
+        var prod = <Product>({
+          name:tempAssStore[item].name,
+          count:tempAssStore[item].count
+        
+        });
+        this.produkte.push(prod);        
+
+      }
+
+      console.log(this.produkte);
+
       return data;
     });
 

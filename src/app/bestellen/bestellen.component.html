@@ -3,6 +3,10 @@
     <jausenstation class="no-click">
         <station>{{jausenholer?.jausenstation}}</station>
         <name>{{jausenholer?.name}}</name>
+        <p class="description">
+            <b>Infos:</b>
+            {{jausenholer?.description}}
+        </p>
 
         <detaillist>
             <detail>
@@ -15,10 +19,7 @@
             </detail>
         </detaillist>
         
-            <p class="description">
-                <b>Infos:</b>
-                {{jausenholer?.description}}
-            </p>
+
     </jausenstation>
 
 </list>
@@ -52,7 +53,7 @@
 </column>
 <column class="col-2" [formGroupName]="i">
 <button type="button" (click)="addProduct()" *ngIf="(products.controls[i].get('name')?.valid) && last" class="form-inlinebutton">+</button>
-<button type="button" (click)="removeProduct(i)" *ngIf="!(first && last) && !last" class="form-inlinebutton">-</button>
+<button type="button" (click)="removeProduct(i)" *ngIf="(!(first && last) && !last) || !(products.controls[i].get('name')?.valid) && last && !first" class="form-inlinebutton">-</button>
 
 </column>
 
@@ -62,6 +63,8 @@
 </form>
 
 </div>
+<div class="empty-space"></div>
+
 <description>
     <h1>Alle Bestellungen</h1>
     <p>Sieh dir an was deinen Kolleg*innen bestellt haben.</p>
@@ -78,10 +81,30 @@
                     <name>{{prod.name}}</name>
                 </product>
             </products>
-            <button type="button" (click)="deleteBestellung(item.id)" *ngIf="(item.user_id == currentUser.user_id)" class="form-inlinebutton">Bestellung Löschen</button>
+            <button type="button" (click)="deleteBestellung(item.id)" *ngIf="(item.user_id == currentUser.user_id)" class="form-inlinebutton px-10">Bestellung Löschen</button>
 
         </bestellung>
     </column>
+</row>
+<div class="empty-space"></div>
+
+<description>
+    <h1>Zusammenfassung</h1>
+    <p>Hier findest du eine automatische Zusammenfassung.</p>
+</description>
+<row>
+    <column class="col-12">
+        <bestellung *ngFor="let item of produkte">
+            <products>
+                <product>
+                    <count>{{item.count}}</count>
+                    <name>{{item.name}}</name>
+                </product>
+            </products>
+
+        </bestellung>
+    </column>
+
 </row>
 <div class="empty-space"></div>
 
