@@ -4,6 +4,7 @@ import  Jausenholer  from '../models/jausenholer.model';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserStoreService } from '../services/user-store.service';
 import User from '../models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -22,7 +23,7 @@ export class IndexComponent implements OnInit {
     ordertill: ["11:00", [Validators.required]],
     description: [""],
   });
-  constructor(private jausenData: JausenDataService, private formBuilder: FormBuilder, private userStore: UserStoreService) { 
+  constructor(private router: Router, private jausenData: JausenDataService, private formBuilder: FormBuilder, private userStore: UserStoreService) { 
     this.currentUser = userStore.loadUser();
     console.log(this.currentUser);
     this.currentTime = new Date().getTime()/1000;
@@ -86,7 +87,14 @@ export class IndexComponent implements OnInit {
       description : jausen.description
     });
   
-    this.jausenData.saveNewJausenholer(jausenstation);
+    this.jausenData.saveNewJausenholer(jausenstation).then(data =>{
+      console.log("Hallo neuer Jausenholer");
+      var id = data._key.path.segments[1];
+      this.router.navigate(['/bestellen', id]);
+     
+      
+      
+    });
     this.jausenForm.reset();
     }
 

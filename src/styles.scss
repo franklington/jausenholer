@@ -9,6 +9,11 @@
     --borderradius: 10px;
     --bordercolor: rgb(138, 138, 138);
 }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 @mixin flexcolumnn {
     display: flex;
@@ -30,12 +35,14 @@ body{
     font-size: var(--fontsize);
     font-family: var(--fontfamiliy);
     color: var(--fontcolor);
-    margin: 0 20px;
+    margin: 0;
+    padding: 0;
 }
 img{
     max-width: 100%;
 }
 container{
+    padding: 20px;
     @include flexcolumnn();
     position: relative;
     width: 100%;
@@ -304,7 +311,11 @@ a.ember-view{
 footer{
     background-color: var(--accentcolor);
     color: #FFFEF8 !important;
-    margin: 0 -20px;
+    box-sizing: border-box;
+    min-height: 30vh;
+    margin: 0;
+    padding: 0;
+    //margin: 0 -20px;
 
     a{
         color: var(--bgcolor);
@@ -392,7 +403,7 @@ bestellung{
 }
 
 .m-body{
-    margin: 0 -10px;
+    //margin: 0 -10px;
 }
 
 .leberkas{

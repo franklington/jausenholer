@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { object } from 'rxfire/database';
+import { count } from 'rxjs';
 import Bestellung, { Product } from '../models/bestellung.model';
 import Jausenholer from '../models/jausenholer.model';
 import User from '../models/user.model';
@@ -17,6 +19,7 @@ export class BestellenComponent implements OnInit {
   jausenholer_id: string;
   jausenholer: any;
   bestellungen: any;
+  produkte: any;
   currentUser: User;
   currentTime: number;
 
@@ -45,7 +48,6 @@ export class BestellenComponent implements OnInit {
   constructor(private userStore:UserStoreService,private actRoute: ActivatedRoute, private formBuilder: FormBuilder,private jausenData: JausenDataService,) {
     this.jausenholer_id = this.actRoute.snapshot.params['id'];
     this.jausenData.getJausenholerById(this.jausenholer_id).then(data => {
-      console.log(data);
   
       this.jausenholer = data;
 
@@ -53,11 +55,9 @@ export class BestellenComponent implements OnInit {
     });
       //loadUser
       this.currentTime= new Date().getTime()/1000;
-      console.log(this.currentTime);
       
 
     this.currentUser = userStore.loadUser();
-    console.log(this.currentUser);
     
     if(this.currentUser.name)
       this.bestellenForm.controls['name'].setValue(this.currentUser.name)
@@ -70,7 +70,31 @@ export class BestellenComponent implements OnInit {
   }
 
   refreshBestellungen():void{
-    this.bestellungen =  this.jausenData.findAllBestellungen(this.jausenholer_id);
+    this.bestellungen =  this.jausenData.findAllBestellungen(this.jausenholer_id).then(data=>{
+      data.forEach(item =>{
+        console.log(item);
+        this.produkte = [];
+        item.products.forEach(product =>{
+            var productid = product.name as string;
+            productid = productid.replace(/\s/g,'');
+            productid = "#"+productid.toLowerCase();
+
+            if(this.produkte[productid!] != null){
+              this.produkte[productid!].count += product.count; 
+            }
+            else{
+              this.produkte[productid!] = <Product>({
+                name: product.name,
+                count: product.count
+              });
+            }
+        });
+        console.log(this.produkte);
+        
+        
+      });
+      return data;
+    });
 
   }
 
