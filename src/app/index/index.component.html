@@ -1,7 +1,7 @@
 
 <description *ngIf="jausenholers">
     <p>
-    Wähle eine Jausenmöglichkeit aus der Liste aus.
+    Wähle eine Jausenmöglichkeit aus der Liste aus oder werde selbst zur/zum Jausenholer*in.
 
     </p>
 </description>
@@ -35,8 +35,10 @@
 </list>
 
 <description>
-    <h1>Nichts dabei?</h1>
-    <p>Hole selbst Jause für andere.</p>
+    <h1 *ngIf="!jausenholers">Sei die/der Erste.</h1>
+
+    <h1 *ngIf="jausenholers">Nichts für dich dabei?</h1>
+    <p>Werde du selbst zur/zum Jausenholer*in und hol Jause für andere. Achtung: die Einträge sind nur am Tag der Erstellung sichtbar.</p>
 </description>
 
 <seperator>werde Jausenholer</seperator>
