@@ -25,7 +25,6 @@ export class IndexComponent implements OnInit {
   });
   constructor(private router: Router, private jausenData: JausenDataService, private formBuilder: FormBuilder, private userStore: UserStoreService) { 
     this.currentUser = userStore.loadUser();
-    console.log(this.currentUser);
     this.currentTime = new Date().getTime()/1000;
 
     
@@ -41,8 +40,6 @@ export class IndexComponent implements OnInit {
   }
 
   newJausenstation(): void {
-    console.log(this.jausenForm);
-   console.log( this.jausenForm.value);
    if(this.jausenForm.valid && this.jausenForm != null){
     var jausen = this.jausenForm.value;
 
@@ -52,11 +49,9 @@ export class IndexComponent implements OnInit {
     var arrOrder = jausen.ordertill.split(":");
     let datOrder = new Date();
     datOrder.setHours(Number.parseInt(arrOrder[0]),Number.parseInt(arrOrder[1]));
-    console.log(datOrder);
     
     
     var arrDelivery = jausen.delivertill.split(":");
-    console.log(arrDelivery);
     
     let datDeliver = new Date();
     datDeliver.setHours(Number.parseInt(arrDelivery[0]),Number.parseInt(arrDelivery[1]));
@@ -64,7 +59,6 @@ export class IndexComponent implements OnInit {
     
 
     //CheckUser
-    console.log("Compare User"+ this.currentUser.name +" "+ jausen.name);
     
     if((this.currentUser.name != jausen.name)){
       var name = jausen.name;
@@ -73,7 +67,6 @@ export class IndexComponent implements OnInit {
         user_id: this.userStore.generateUserID(name!)
       });
       this.userStore.setUser(this.currentUser);
-      console.log("set new user");
       
     }
 
@@ -88,7 +81,6 @@ export class IndexComponent implements OnInit {
     });
   
     this.jausenData.saveNewJausenholer(jausenstation).then(data =>{
-      console.log("Hallo neuer Jausenholer");
       var id = data._key.path.segments[1];
       this.router.navigate(['/bestellen', id]);
      
@@ -102,7 +94,7 @@ export class IndexComponent implements OnInit {
    }
    else
    {
-    alert("Fehler im Formular");
+    alert("Bitte Formular vollständig ausfüllen.");
    }
     
   

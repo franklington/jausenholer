@@ -46,7 +46,6 @@ export class JausenDataService {
     return querySnapshot.docs.map(doc => { 
       var jaus = doc.data() as Bestellung;
       jaus.id = doc.id;
-      console.log(jaus);
       
       return jaus;
     });
@@ -63,7 +62,6 @@ export class JausenDataService {
   const docRef = doc(this.db, "jausenholer", id).withConverter(jausenholerCoverter);
   const docSnap =  await getDoc(docRef);
   if (docSnap.exists()) {
-    console.log(docSnap.data());
     
     return docSnap.data();
     // Use a City instance method

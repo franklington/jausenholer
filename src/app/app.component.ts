@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'jausenholer';
+  constructor(){
+
+    console.log(  "███████╗██████╗  █████╗ ███╗   ██╗███████╗");
+console.log(  "██╔════╝██╔══██╗██╔══██╗████╗  ██║╚══███╔╝");
+console.log(  "█████╗  ██████╔╝███████║██╔██╗ ██║  ███╔╝ ");
+console.log(  "██╔══╝  ██╔══██╗██╔══██║██║╚██╗██║ ███╔╝  ");
+console.log(  "██║     ██║  ██║██║  ██║██║ ╚████║███████╗");
+console.log(  "╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝");
+console.log(  "                                          ");
+console.log(" Franz Mühringer | 2022 | hyphe.at")
+  }
 }
