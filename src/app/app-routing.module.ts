@@ -5,7 +5,8 @@ import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
-  { path: 'bestellen/:id', component: BestellenComponent }
+  { path: 'bestellen/:id', component: BestellenComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

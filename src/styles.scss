@@ -55,7 +55,7 @@ logo{
     background-image: url(./assets/jh_logo.png);
     width: 100%;
     height: 55px;
-    margin: 75px 0 50px 0;
+    margin: 10px 0 10px 0;
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -425,4 +425,12 @@ bestellung{
 }
 .px-10{
     padding: 0 20px;
+}
+.backbutton{
+    transform: scaleY(3.5);
+    text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    top: 47px;
+    color: var(--bordercolor);
 }

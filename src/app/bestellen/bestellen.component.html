@@ -1,10 +1,11 @@
+<a class="backbutton" routerLink="/"> < </a>
 <list class="">
-   
+    
     <jausenstation class="no-click">
         <station>{{jausenholer?.jausenstation}}</station>
         <name>{{jausenholer?.name}}</name>
-        <p class="description">
-            <b>Infos:</b>
+        <p *ngif="jausenholer?.description" class="description">
+            <b>INFO:</b>
             {{jausenholer?.description}}
         </p>
 
