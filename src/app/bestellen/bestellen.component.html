@@ -4,7 +4,7 @@
     <jausenstation class="no-click">
         <station>{{jausenholer?.jausenstation}}</station>
         <name>{{jausenholer?.name}}</name>
-        <p *ngif="jausenholer?.description" class="description">
+        <p *ngIf="jausenholer?.description" class="description">
             <b>INFO:</b>
             {{jausenholer?.description}}
         </p>
