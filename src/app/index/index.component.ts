@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class IndexComponent implements OnInit {
   jausenholers : any;
+  isJausenholers : boolean = false;
   currentUser : User;
   currentTime:number;
   jausenForm = this.formBuilder.group({
@@ -36,7 +37,11 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.jausenholers =  this.jausenData.findAllJausenholer();
+    this.jausenholers =  this.jausenData.findAllJausenholer().then(data=>{
+      if(data.length > 0)
+        this.isJausenholers = true;
+      return data;
+    });
   }
 
   newJausenstation(): void {
