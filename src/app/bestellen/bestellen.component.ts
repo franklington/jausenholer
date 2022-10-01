@@ -64,7 +64,6 @@ export class BestellenComponent implements OnInit {
       this.bestellenForm.controls['name'].setValue(this.currentUser.name)
   }
   ngOnInit(): void {
-    console.log(this.jausenholer_id);
     this.refreshBestellungen();
 
     
@@ -74,7 +73,6 @@ export class BestellenComponent implements OnInit {
     this.bestellungen =  this.jausenData.findAllBestellungen(this.jausenholer_id).then(data=>{
       const tempAssStore : any = {};
       data.forEach(item =>{
-        console.log(item);
         item.products.forEach(product =>{
             var productid = product.name as string;
             productid = productid.replace(/\s/g,'');
@@ -94,10 +92,8 @@ export class BestellenComponent implements OnInit {
         
       });
       this.produkte = new Array();
-      console.log(tempAssStore);
       
       for(var item in tempAssStore){
-        console.log(tempAssStore[item]);
         var prod = <Product>({
           name:tempAssStore[item].name,
           count:tempAssStore[item].count
@@ -107,7 +103,6 @@ export class BestellenComponent implements OnInit {
 
       }
 
-      console.log(this.produkte);
 
       return data;
     });
